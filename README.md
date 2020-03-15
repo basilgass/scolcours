@@ -1,4 +1,4 @@
-# scolcoursvue
+# scolcours - version du gymnase
 
 ## Project setup
 ```
