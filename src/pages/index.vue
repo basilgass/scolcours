@@ -4,7 +4,7 @@
       <v-row>
         <v-col>MON TITRE ICI</v-col>
         <v-btn href="M">Maturité</v-btn>
-        <v-btn href="ECG">Ecole de maturité</v-btn>
+        <v-btn href="ECG">Ecole de culture générale</v-btn>
       </v-row>
     </v-container>
   </div>

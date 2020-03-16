@@ -13,7 +13,7 @@
 
 <script>
     export default {
-        name: "1M"
+        name: "c-2"
     }
 </script>
 

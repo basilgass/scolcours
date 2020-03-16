@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <ScNavbar/>
-
     <v-content>
       <router-view/>
     </v-content>

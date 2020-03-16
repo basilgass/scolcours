@@ -1,6 +1,6 @@
 <template>
     <v-footer
-            color="primary lighten-1"
+            color="light-green darken-4"
             padless
     >
         <v-row
@@ -8,7 +8,7 @@
                 no-gutters
         >
             <v-col
-                    class="primary lighten-2 py-4 text-center white--text"
+                    class="py-4 text-center white--text"
                     cols="12"
             >
                 {{ new Date().getFullYear() }} — <strong>Scolcours</strong>

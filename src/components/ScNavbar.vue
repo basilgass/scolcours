@@ -1,8 +1,9 @@
 <template>
     <v-app-bar
             app
-            color="primary"
+            color="light-green"
             dark
+            clipped-right
     >
         <div class="d-flex align-center">
             <v-img
@@ -15,7 +16,7 @@
             />
                 <v-btn
                         v-for="link in links"
-                        :key="link"
+                        :key="link.id"
                         :to="link.link"
                         color="white"
                         text
@@ -43,9 +44,9 @@
         name: 'ScNavbar',
         data: () => ({
             links: [
-                {text: 'Accueil', link:'/'},
-                {text: 'Maturité', link:'/M'},
-                {text: 'ECG', link:'/ECG'},
+                {id: 1, text: 'Accueil', link:'/'},
+                {id: 2, text: 'Maturité', link:'/M'},
+                {id: 3, text: 'ECG', link:'/ECG'},
             ],
         }),
     }
