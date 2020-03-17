@@ -77,7 +77,8 @@
                     barPercentage: 1,
                     categoryPercentage: this.barWidth,
                     order: 2
-                }];
+                }],
+                    dlabel = this.chartLabels;
 
                 if(this.barPolygon) {
                     ds.push({
@@ -89,11 +90,18 @@
                         order: 1,
                         lineTension: 0
                     });
+
+                    ds[0].data.push('')
+                    ds[0].data.unshift('')
+                    ds[0].backgroundColor.push('')
+                    ds[0].backgroundColor.unshift('')
+                    dlabel.push('')
+                    dlabel.unshift('')
                 }
 
                 return  {
                     datasets: ds,
-                    labels: this.chartLabels,
+                    labels: dlabel,
                 }
             },
             maxChartValue: function() {
