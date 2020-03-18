@@ -1,8 +1,8 @@
 <template>
     <v-navigation-drawer
             right
-            app
             clipped
+            app
     >
         <v-list dense>
             <v-list-item-group>

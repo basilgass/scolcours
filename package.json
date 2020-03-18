@@ -1,5 +1,5 @@
 {
-  "name": "scolcoursvue",
+  "name": "GymnaseScolcours",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,10 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
+    "katex": "^0.11.1",
     "vue": "^2.6.11",
+    "vue-katex": "^0.4.0",
+    "vue-plugin-load-script": "^1.2.0",
     "vue-router": "^3.1.5",
     "vue-router-layout": "^0.1.2",
     "vuetify": "^2.2.11"
@@ -46,7 +49,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "vue/no-unused-vars": "off"
+    }
   },
   "browserslist": [
     "> 1%",

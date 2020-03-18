@@ -4,7 +4,12 @@ module.exports = {
       "chunkNamePrefix": "page-"
     }
   },
+
   "transpileDependencies": [
     "vuetify"
-  ]
+  ],
+  configureWebpack: {
+    devtool: 'source-map'
+  },
+  lintOnSave: false
 }

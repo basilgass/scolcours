@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <ScNavbar/>
+
     <v-content>
       <router-view/>
     </v-content>
@@ -13,7 +14,6 @@
 
   import ScFooter from "./components/ScFooter";
   import ScNavbar from "./components/ScNavbar";
-
   export default {
   name: 'App',
   components: {ScNavbar, ScFooter},
@@ -22,3 +22,9 @@
   }),
 };
 </script>
+
+<style>
+  .mord.accent{
+    background-color: white !important;
+  }
+</style>

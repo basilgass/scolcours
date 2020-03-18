@@ -2,6 +2,8 @@
     <v-footer
             color="light-green darken-4"
             padless
+            clipped-right
+            app
     >
         <v-row
                 justify="center"

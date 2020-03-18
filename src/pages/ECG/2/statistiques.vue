@@ -142,20 +142,7 @@
     }
     shuffleArray(quantitatifRawData);
 
-    /*
-    : function(){
-        let d = [];
-
-        for(let i=0; i<100; i++){
-            d.push(getRandomInt(1,30)+getRandomInt(1,30)+getRandomInt(1,20))
-        }
-
-        shuffleArray(d)
-        return d;
-    },
-    */
-
-    export default {
+     export default {
         name: "statistiques",
         components: {ScTocDrawer, ScChartDistribution, ScChart},
         data: function () {

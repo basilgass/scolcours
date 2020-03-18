@@ -1,20 +1,10 @@
 <template>
-    <div class="template-wrapper">
-        <div class="3M">3ème maturité</div>
+        <v-container>
+            <v-row>
+                <v-col><h2 class="display-1">Ecole de maturité, 3ème année</h2></v-col>
+            </v-row>
+        </v-container>
 
-        <ul v-if="posts && posts.length">
-            <li v-for="post of posts" :key="post.id">
-                <p><strong>{{post.fr}}</strong></p>
-                <p>{{post.traduction}}</p>
-            </li>
-        </ul>
-
-        <ul v-if="errors && errors.length">
-            <li v-for="error of errors" :key="error.id">
-                {{error.message}}
-            </li>
-        </ul>
-    </div>
 </template>
 
 <script>
@@ -22,7 +12,7 @@
 
     export default {
         name: "m-3",
-        data: function() {
+        /*data: function() {
             return {
                 posts: [],
                 errors: []
@@ -37,7 +27,7 @@
             .catch(e => {
                 this.errors.push(e)
             })
-        }
+        }*/
     }
 </script>
 

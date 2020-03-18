@@ -1,7 +1,7 @@
 <template>
     <v-container class="2C">
         <v-row class="row">
-            <v-col><h2>2ème ECG</h2></v-col>
+            <v-col><h2 class="display-1">Ecole de culture générale, 2ème année</h2></v-col>
         </v-row>
         <v-row>
             <v-col>

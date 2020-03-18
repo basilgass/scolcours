@@ -29,7 +29,7 @@
 
         <v-spacer></v-spacer>
         <v-btn
-                to="/outils"
+                to="Outils"
                 color="white"
                 text
                 rounded
