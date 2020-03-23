@@ -11,5 +11,6 @@ module.exports = {
   configureWebpack: {
     devtool: 'source-map'
   },
-  lintOnSave: false
-}
+  lintOnSave: false,
+  publicPath: '/'
+};

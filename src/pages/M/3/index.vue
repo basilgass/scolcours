@@ -12,22 +12,23 @@
 
     export default {
         name: "m-3",
-        /*data: function() {
+        data: function() {
             return {
                 posts: [],
                 errors: []
             }
         },
         created: function(){
-            axios.get('/crud/get.php?table=traductions_ang')
+            axios.get('/crud/get.php?table=users')
             .then(response=>{
-                console.log(response.data)
+                alert('SUCCESS');
+                console.log(response.data);
                 this.posts = response.data.results;
             })
             .catch(e => {
                 this.errors.push(e)
             })
-        }*/
+        }
     }
 </script>
 

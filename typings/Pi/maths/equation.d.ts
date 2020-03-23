@@ -43,6 +43,7 @@ export declare class Equation {
     get isVarvothing(): boolean;
     get signAsTex(): string;
     get tex(): string;
+    get raw(): string;
     get variables(): string[];
     get numberOfVars(): number;
     get left(): Polynom;

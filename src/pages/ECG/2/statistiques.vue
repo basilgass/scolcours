@@ -7,18 +7,7 @@
 
             <section>
                 <div class="headline mt-10 mb-5">Définitions</div>
-                <v-list>
-                    <v-list-item-group color="primary">
-                        <v-list-item
-                                v-for="(def, i) in definitions"
-                                :key="i">
-                            <v-list-item-content>
-                                <v-list-item-title>{{ def.nom }}</v-list-item-title>
-                                <v-list-item-subtitle>{{ def.definition }}</v-list-item-subtitle>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list-item-group>
-                </v-list>
+                <scDefinitions :definitions="definitions"/>
             </section>
 
             <v-divider></v-divider>
@@ -34,7 +23,6 @@
 
                 <div class="title mt-4">Tableau de distribution</div>
                 <sc-chart-distribution ref="chartQualitatif" :chart-data=distribution :edit-mode=editMode />
-
 
 
                 <div class="title mt-4">Graphiques</div>
@@ -79,6 +67,7 @@
     import ScChartDistribution from "../../../components/ScChartDistribution";
     import ScChart from "../../../components/ScChart";
     import ScTocDrawer from "../../../components/ScTocDrawer";
+    import ScDefinitions from "../../../components/ScDefinitions";
 
     function shuffleArray(d){
         for (var i = d.length - 1; i > 0; i--) {
@@ -144,7 +133,7 @@
 
      export default {
         name: "statistiques",
-        components: {ScTocDrawer, ScChartDistribution, ScChart},
+        components: {ScDefinitions, ScTocDrawer, ScChartDistribution, ScChart},
         data: function () {
             return {
                 items: [

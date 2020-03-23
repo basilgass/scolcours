@@ -27,4 +27,12 @@
   .mord.accent{
     background-color: white !important;
   }
+
+  section{
+    margin-bottom: 3em;
+  }
+  .title{
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 </style>
