@@ -25,11 +25,20 @@
             return {
                 timeline: [
                     {
+                        titre: 'Exercice',
+                        icon: 'book-open-variant',
+                        color: 'teal',
+                        delai: '02.04.2020',
+                        texte: `Faire les exercices 8.15, 8.16 et 8.17`
+                    },
+                    {
                         titre: 'Fréquences cumulées des variables statistiques quantitatives',
                         icon: 'brain',
                         color: 'primary',
                         delai: '27.03.2020',
-                        texte: `<p>Lire la théorie pages 8.15 et 8.16.</p><p>Je modifierai la théorie en ligne durant la semaine.</p>`
+                        texte: `<p class="red--text">Pour celles et ceux qui ne l'ont pas encore fait, merci de m'envoyer une ou deux photos de vos graphiques, pour que je puisse les corriger!</p>
+                                <p>Lire la <strong>théorie</strong> pages 8.15 et 8.16.</p>
+                                <p>Je modifierai la théorie en ligne durant la semaine.</p>`
                     },
                     {
                         titre: 'Exercice',

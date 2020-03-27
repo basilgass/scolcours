@@ -9,6 +9,10 @@ Vue.config.productionTip = false;
 import VueKatex from 'vue-katex';
 import 'katex/dist/katex.min.css';
 Vue.use(VueKatex, {globalOptions: {}});
+//import KVec from "./components/BaseKatex/KVec";
+//Vue.component(KVec);
+
+// Add mixins
 
 new Vue({
   router,

@@ -5,22 +5,40 @@
                 fixed-header
                 :headers="headers"
                 :items="exercices"
-                :items-per-page="10"
+                :items-per-page="50"
                 class="elevation-2"
+                :sort-by="['delai']"
+                :sort-desc="[true]"
+                multi-sort
         >
             <template v-slot:item.status="{ item }">
                 <v-chip-group column :value="+item.status">
-                    <v-chip active-class="red darken-3" outlined
-                            @click="marquerStatus(item.id, 0)">
-                        <v-icon>mdi-alert-outline</v-icon><span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> Pas commencé</span>
+                    <v-chip
+                            active-class="red darken-3"
+                            outlined
+                            @click="marquerStatus(item.id, 0)"
+                            filter=true
+                            filter-icon="mdi-alert-outline"
+                    >
+                        <span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> Pas commencé</span>
                     </v-chip>
-                    <v-chip active-class="orange accent-3" outlined
-                            @click="marquerStatus(item.id, 1)">
-                        <v-icon>mdi-help-circle-outline</v-icon><span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> En cours</span>
+                    <v-chip
+                            active-class="orange accent-3"
+                            outlined
+                            @click="marquerStatus(item.id, 1)"
+                            filter=true
+                            filter-icon="mdi-help-circle-outline"
+                    >
+                        <span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> En cours</span>
                     </v-chip>
-                    <v-chip active-class="success" outlined
-                            @click="marquerStatus(item.id, 2)">
-                        <v-icon>mdi-check</v-icon><span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> Terminé</span>
+                    <v-chip
+                            active-class="success"
+                            outlined
+                            @click="marquerStatus(item.id, 2)"
+                            filter=true
+                            filter-icon="mdi-check"
+                    >
+                        <span v-if="$vuetify.breakpoint.mdAndUp" class="ml-2"> Terminé</span>
                     </v-chip>
                 </v-chip-group>
             </template>

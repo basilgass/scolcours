@@ -1,38 +1,28 @@
 <template>
   <v-app>
     <ScNavbar/>
-
     <v-content>
       <router-view/>
     </v-content>
-
     <sc-footer/>
   </v-app>
 </template>
 
 <script>
 
-  import ScFooter from "./components/ScFooter";
-  import ScNavbar from "./components/ScNavbar";
+  import ScFooter from "./components/UserInterface/ScFooter";
+  import ScNavbar from "./components/UserInterface/ScNavbar";
+
   export default {
   name: 'App',
   components: {ScNavbar, ScFooter},
   data: () => ({
     //
   }),
-};
+    mounted() {
+    }
+  };
 </script>
 
 <style>
-  .mord.accent{
-    background-color: white !important;
-  }
-
-  section{
-    margin-bottom: 3em;
-  }
-  .title{
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
 </style>

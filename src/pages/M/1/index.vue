@@ -29,6 +29,22 @@
                         titre: 'Exercices',
                         icon: 'book-open-variant',
                         color: 'teal',
+                        delai: '03.04.2020',
+                        texte: `<p>4.1, 4.2, 4.3, 4.5, 4.6</p>`,
+                        actions: false
+                    },
+                    {
+                        titre: 'Norme',
+                        icon: 'brain',
+                        color: 'primary',
+                        delai: '31.03.2020',
+                        texte: `Lire la théorie sur la norme (chapitre 4, pages 4.1 et 4.2), ainsi qu'en naviguant dans la théorie.`,
+                        actions: {label: 'Norme', to: 'geometrievectorielle#norme'}
+                    },
+                    {
+                        titre: 'Exercices',
+                        icon: 'book-open-variant',
+                        color: 'teal',
                         delai: '27.03.2020',
                         texte: `<p>3.1, 3.3, 3.4, 3.5, 3.7, 3.8*, 3.9 (1 et 3), 3.10, 3.14 et 3.16</p>
                                 <p>En utilisant les rapports de section: 3.11, 3.12, 3.15 et 3.18</p>
@@ -42,7 +58,7 @@
                         color: 'primary',
                         delai: '20.03.2020',
                         texte: `Lire la théorie sur les rapports de section (pages 3.6, paragraphe 5) et tester avec le lien ci-dessous`,
-                        actions: {label: 'Rapport de section', to: 'geometrievectorielle'}
+                        actions: {label: 'Rapport de section', to: 'geometrievectorielle#reperes'}
                     }
                 ]
             }

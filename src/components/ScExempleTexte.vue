@@ -1,0 +1,8 @@
+<template>
+    <div class="text-center"><slot></slot></div>
+</template>
+<script>
+    export default {
+        name: 'ScExempleTexte'
+    }
+</script>

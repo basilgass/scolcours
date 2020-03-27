@@ -1,78 +1,60 @@
 <template>
     <div>
-        <sc-toc-drawer/>
+        <ScTocDrawer></ScTocDrawer>
         <v-container>
             <div class="display-3 mt-10">Statistiques</div>
-            <v-breadcrumbs :items="items"></v-breadcrumbs>
+            <sc-breadcrumbs />
 
             <section>
                 <div class="headline mt-10 mb-5">Définitions</div>
                 <scDefinitions :definitions="definitions"/>
             </section>
 
-            <v-divider></v-divider>
             <section>
-                <div class="headline mt-10 mb-5">Variable qualitative</div>
+                <div class="headline mt-10 mb-5">Introduction</div>
 
-                <div class="title mt-4">Données brutes</div>
-                <v-row>
-                    <v-col cols="4" sm="3" md="2" v-for="(d,idx) in distributionRawData" :key="idx">
-                        {{d}}
-                    </v-col>
-                </v-row>
+                <div class="title mt-4">Fréquence</div>
+                La <strong>fréquence</strong> est le rapport entre l'effectif d'une modalité et le nombre total des individus dans la population.
+                Cette valeur est un pourcentage et peut donc s'écrire \( 0.75 \) ou \( 75\% \)
 
-                <div class="title mt-4">Tableau de distribution</div>
-                <sc-chart-distribution ref="chartQualitatif" :chart-data=distribution :edit-mode=editMode />
-
-
-                <div class="title mt-4">Graphiques</div>
-                <v-row>
-                        <v-col cols="6" class="text-center">
-                            <div class="subtitle-1">Histogramme</div>
-                            <sc-chart :chart-data=hdata :chart-labels="ldata" :chart-colors="coldata"></sc-chart>
-                        </v-col>
-
-                        <v-col cols="6" class="text-center">
-                            <div class="subtitle-1">Diagramme en secteurs circulaires</div>
-                            <sc-chart chart-type="pie" :chart-data=hdata :chart-labels="ldata" :chart-colors="coldata"></sc-chart>
-                        </v-col>
-                    </v-row>
+                <base-alert>
+                    \[
+                    \text{Fréquence}=\frac{\text{Effectif}}{\text{Population totale}}
+                    \]
+                </base-alert>
 
             </section>
+            <v-divider></v-divider>
+            <statistique-variable-qualitative></statistique-variable-qualitative>
 
             <v-divider></v-divider>
-            <section>
-                <div class="headline mt-10 mb-5">Variable quantitative</div>
+            <statistique-variable-quantitative></statistique-variable-quantitative>
 
-                <div class="title mt-4">Données brutes</div>
-                <v-row>
-                    <v-col cols="4" sm="3" md="2" v-for="(d,idx) in distributionContinueRawData" :key="idx">
-                        {{d}}
-                    </v-col>
-                </v-row>
+            <v-divider></v-divider>
+            <statistique-variable-cumulee></statistique-variable-cumulee>
 
-                <div class="title mt-4">Tableau de distribution par classes</div>
-                <sc-chart-distribution :chart-data=distributionContinue :edit-mode=editMode ></sc-chart-distribution>
-
-                <div class="title mt-4">Histogramme et polygone de fréquence</div>
-                <sc-chart :chart-data=cdata :chart-labels="clabel" :chart-colors="ccolor" :bar-width="1" :bar-polygon="true"></sc-chart>
-            </section>
-
+            <v-divider></v-divider>
+            <statistique-autres-graphiques></statistique-autres-graphiques>
         </v-container>
     </div>
 </template>
 
 
 <script>
-    import ScChartDistribution from "../../../components/ScChartDistribution";
-    import ScChart from "../../../components/ScChart";
-    import ScTocDrawer from "../../../components/ScTocDrawer";
+    import ScTocDrawer from "../../../components/UserInterface/ScTocDrawer";
     import ScDefinitions from "../../../components/ScDefinitions";
+    import StatistiqueVariableQuantitative from "./__statistiques__/statistiqueVariableQuantitative";
+    import StatistiqueVariableQualitative from "./__statistiques__/statistiqueVariableQualitative";
+    import StatistiqueVariableCumulee from "./__statistiques__/statistiqueVariableCumulee";
+    import StatistiqueAutresGraphiques from "./__statistiques__/statistiqueAutresGraphiques";
+    import BaseAlert from "../../../components/BaseAlert";
+    import renderMathInElement from "katex/dist/contrib/auto-render.min";
+    import ScBreadcrumbs from "../../../components/UserInterface/ScBreadcrumbs";
 
     function shuffleArray(d){
-        for (var i = d.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = d[i];
+        for (let i = d.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = d[i];
             d[i] = d[j];
             d[j] = temp;
         }
@@ -100,10 +82,10 @@
         {nom: 'Bleu', effectif: 4, couleur: colors[3]},
     ], qualitatifDataRaw = [];
 
-    for(let c in qualitatifData){
-        qualitatifData[c].effectif = getRandomInt(1, 10);
-        for(let i=0; i<qualitatifData[c].effectif; i++){
-            qualitatifDataRaw.push(qualitatifData[c].nom);
+    for(const qualitatif of qualitatifData){
+        qualitatif.effectif = getRandomInt(1, 10);
+        for(let i=0; i<qualitatif.effectif; i++){
+            qualitatifDataRaw.push(qualitatif.nom);
         }
     }
     shuffleArray(qualitatifDataRaw);
@@ -133,7 +115,13 @@
 
      export default {
         name: "statistiques",
-        components: {ScDefinitions, ScTocDrawer, ScChartDistribution, ScChart},
+        components: {
+            ScBreadcrumbs,
+            BaseAlert,
+            StatistiqueAutresGraphiques,
+            StatistiqueVariableCumulee,
+            StatistiqueVariableQualitative,
+            StatistiqueVariableQuantitative, ScDefinitions, ScTocDrawer},
         data: function () {
             return {
                 items: [
@@ -163,14 +151,17 @@
                 definitions: [
                     {nom: 'Population', definition: `Ensemble des éléments qui font partie de l'étude. Un élément de la population est un individu ou une unité statistique`},
                     {nom: 'Variable statistique', definition: `La question que l'on pose`},
-                    {nom: 'Modalités', definition: `Ensemble des réponses possibles pour une variable statistique donnée.`},
                     {nom: 'Qualitative', definition: `Se dit d'une variable statistique dont les modalités ne sont pas des nombres.`},
-                    {nom: 'Quantitative discrète', definition: `Se dit d'une variable statistique dont les modalités sont des nombres finis`},
-                    {nom: 'Quantitative continue', definition: `Se dit d'une variable statistique dont les modalités sont des nombres continus`},
+                    {nom: 'Quantitative discrète', definition: `<p>Se dit d'une variable statistique dont les modalités sont des nombres finis, que l'on peut donc compter facilement.</p><p class="caption">Par exemple: le nombre de réponses correctes d'un test de math est une variable discrète.</p>`},
+                    {nom: 'Quantitative continue', definition: `<p>Se dit d'une variable statistique dont les modalités sont des nombres continus. On ne peut pas (ou difficilement) toutes les compter.</p><p class="caption">Par exemple: le rapport entre la longueur et la largeur d'un rectangle est une variable continue.</p>`},
+                    {nom: 'Modalités', definition: `Ensemble des réponses possibles pour une variable statistique donnée.`},
+                    {nom: 'Effectifs', definition: `Nombre de fois qu'une modalité a été observée.`},
                     {nom: 'Classes', definition: `Une classe est un intervalle semi-ouvert qui regroupe plusieurs modalités, afin de synthétiser l'information des données brutes `}
                 ],
+                distributionRawDataAfficher: false,
                 distributionRawData: qualitatifDataRaw,
                 distribution: qualitatifData,
+                distributionContinueRawDataAfficher: false,
                 distributionContinue: quantitatifData,
                 distributionContinueRawData: quantitatifRawData
             };
@@ -208,6 +199,9 @@
                 return d;
             }
         },
-    }
+         mounted() {
+             renderMathInElement(this.$el);
+         }
+     }
 </script>
 

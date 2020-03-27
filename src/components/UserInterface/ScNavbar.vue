@@ -37,6 +37,7 @@
         >
             Outils <v-icon class="ml-2">mdi-toolbox</v-icon>
         </v-btn>
+        <v-app-bar-nav-icon v-if="$vuetify.breakpoint.mdAndDown"></v-app-bar-nav-icon>
     </v-app-bar>
 </template>
 <script>
