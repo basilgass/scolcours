@@ -1,5 +1,5 @@
 <template>
-  <div id="scolcours-default-layout">
+  <div id="scolcours-exercice-layout">
     <sc-navbar></sc-navbar>
     <v-content>
       <v-container id="scolcours-content">
@@ -21,7 +21,6 @@
 </style>
 <script>
   import ScNavbar from "../components/UserInterface/ScNavbar";
-  import ScTocDrawer from "../components/UserInterface/ScTocDrawer";
   import ScFooter from "../components/UserInterface/ScFooter";
   export default {
     components: {ScFooter, ScNavbar}

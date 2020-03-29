@@ -1,21 +1,13 @@
 <template>
   <v-app>
-    <ScNavbar/>
-    <v-content>
-      <router-view/>
-    </v-content>
-    <sc-footer/>
+    <router-view/>
   </v-app>
 </template>
 
 <script>
 
-  import ScFooter from "./components/UserInterface/ScFooter";
-  import ScNavbar from "./components/UserInterface/ScNavbar";
-
   export default {
   name: 'App',
-  components: {ScNavbar, ScFooter},
   data: () => ({
     //
   }),
@@ -25,4 +17,7 @@
 </script>
 
 <style>
+  .katex-left .katex{
+    text-align: left !important;
+  }
 </style>

@@ -104,12 +104,12 @@
     </section>
 </template>
 <script>
-    import BaseAlert from "../../../../components/BaseAlert"
-    import {Pi} from "../../../../../public/js/pi";
+    import BaseAlert from "../../../../../components/BaseAlert"
+    import {Pi} from "../../../../../../public/js/pi";
     import katex from "katex";
     import {SVG} from "@svgdotjs/svg.js";
-    import ScExemple from "../../../../components/ScExemple";
-    import ScExempleTexte from "../../../../components/ScExempleTexte";
+    import ScExemple from "../../../../../components/ScExemple";
+    import ScExempleTexte from "../../../../../components/ScExempleTexte";
 
     function rapportSectionFN() {
         function calculer(){

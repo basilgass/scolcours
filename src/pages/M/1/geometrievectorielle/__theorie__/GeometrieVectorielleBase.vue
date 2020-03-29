@@ -85,10 +85,10 @@
 </template>
 <script>
 
-    import BaseAlert from "../../../../components/BaseAlert"
-    import ScExemple from "../../../../components/ScExemple";
-    import ScExempleEtape from "../../../../components/ScExempleEtape";
-    import ScExempleTexte from "../../../../components/ScExempleTexte";
+    import BaseAlert from "../../../../../components/BaseAlert"
+    import ScExemple from "../../../../../components/ScExemple";
+    import ScExempleEtape from "../../../../../components/ScExempleEtape";
+    import ScExempleTexte from "../../../../../components/ScExempleTexte";
 
     export default {
         name: 'GeometrieVectorielleBase',

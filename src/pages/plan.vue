@@ -72,7 +72,7 @@
                 let that = this;
                 axios({
                     method: 'post',
-                    url: './crud/login.php',
+                    url: '/crud/login.php',
                     data: this.model
                 }).then(response => {
                     console.log(response.data);

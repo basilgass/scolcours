@@ -1,17 +1,17 @@
 <template>
         <v-container>
-            <v-row>
-                <v-col><h2 class="display-1">Ecole de maturité, 3ème année</h2></v-col>
-            </v-row>
+            <sc-annee-titre annee="3"></sc-annee-titre>
         </v-container>
 
 </template>
 
 <script>
     import axios from 'axios';
+    import ScAnneeTitre from "../../../components/ScAnneeTitre";
 
     export default {
         name: "m-3",
+        components: {ScAnneeTitre},
         data: function() {
             return {
                 posts: [],

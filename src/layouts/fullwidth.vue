@@ -1,13 +1,9 @@
 <template>
-  <div id="scolcours-default-layout">
+  <div id="scolcours-fullwidth-layout">
     <sc-navbar></sc-navbar>
     <v-content>
-      <v-container id="scolcours-content">
-        <v-row justify="center">
-          <v-col cols="12" lg="10" xl="8">
+      <v-container id="scolcours-content" fluid>
             <router-view/>
-          </v-col>
-        </v-row>
       </v-container>
     </v-content>
     <sc-footer></sc-footer>
@@ -17,6 +13,9 @@
 <style>
   .mord.accent{
     background-color: transparent !important;
+  }
+  .container{
+    max-width: 100% !important;
   }
 </style>
 <script>

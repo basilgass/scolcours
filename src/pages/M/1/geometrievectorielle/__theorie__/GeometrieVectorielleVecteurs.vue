@@ -71,9 +71,9 @@
     </section>
 </template>
 <script>
-    import ScDefinitions from "../../../../components/ScDefinitions"
-    import {Pi} from "../../../../../public/js/pi";
-    import {GeomPi} from "../../../../../public/js/geompi";
+    import ScDefinitions from "../../../../../components/ScDefinitions"
+    import {Pi} from "../../../../../../public/js/pi";
+    import {GeomPi} from "../../../../../../public/js/geompi";
     import katex from "katex";
 
     function svgDefinitions() {

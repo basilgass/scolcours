@@ -1,8 +1,9 @@
 <template>
     <v-container class="maths">
         <v-row>
-            <v-col><h2 class="display-1">Ecole de culture générale, 3ème année</h2></v-col>
+            <v-col><h1 class="display-1">Ecole de culture générale</h1></v-col>
         </v-row>
+
         <v-row>
             <v-col>
                 <v-btn to="1" append class="mr-5">1C</v-btn>

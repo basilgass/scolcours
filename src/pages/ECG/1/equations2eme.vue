@@ -1,6 +1,5 @@
 <template>
     <div>
-        <sc-toc-drawer/>
         <v-container >
             <div class="display-3 mt-10">Equations du 2ème degré</div>
             <sc-breadcrumbs />
@@ -251,6 +250,7 @@
 
     export default {
         name: "equations2eme",
+        layout: 'theorie',
         components: {ScBreadcrumbs, BaseAlert, KatexAlignedEquation, KatexQuestionReponse, ScTocDrawer},
         data: function () {
             return {

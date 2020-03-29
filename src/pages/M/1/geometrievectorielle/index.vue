@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        <ScTocDrawer/>
         <div class="display-3 mt-10">Géométrie vectorielle</div>
         <sc-breadcrumbs />
         <v-switch
@@ -26,23 +25,22 @@
 </template>
 
 <script>
-    import ScTocDrawer from "../../../components/UserInterface/ScTocDrawer";
-    import ScBreadcrumbs from "../../../components/UserInterface/ScBreadcrumbs";
+    import ScBreadcrumbs from "../../../../components/UserInterface/ScBreadcrumbs";
     import renderMathInElement from "katex/dist/contrib/auto-render.min";
-    import GeometrieVectorielleVecteurs from "./__geometrievectorielle__/GeometrieVectorielleVecteurs";
-    import GeometrieVectorielleBase from "./__geometrievectorielle__/GeometrieVectorielleBase";
-    import GeometrieVectorielleRepere from "./__geometrievectorielle__/GeometrieVectorielleRepere";
-    import GeometrieVectorielleNorme from "./__geometrievectorielle__/GeometrieVectorielleNorme";
+    import GeometrieVectorielleVecteurs from "./__theorie__/GeometrieVectorielleVecteurs";
+    import GeometrieVectorielleBase from "./__theorie__/GeometrieVectorielleBase";
+    import GeometrieVectorielleRepere from "./__theorie__/GeometrieVectorielleRepere";
+    import GeometrieVectorielleNorme from "./__theorie__/GeometrieVectorielleNorme";
 
     export default {
         name: "geometrievectorielle",
+        layout: 'theorie',
         components: {
             ScBreadcrumbs,
             GeometrieVectorielleNorme,
             GeometrieVectorielleVecteurs,
             GeometrieVectorielleBase,
-            GeometrieVectorielleRepere,
-            ScTocDrawer},
+            GeometrieVectorielleRepere},
         data: function() {
             return {
                 resume: false,

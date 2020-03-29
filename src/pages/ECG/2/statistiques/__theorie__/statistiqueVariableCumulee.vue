@@ -75,9 +75,9 @@
 
 
 <script>
-    import ScChartDistribution from "../../../../components/ScChartDistribution";
-    import ScChart from "../../../../components/ScChart";
-    import {Pi} from "../../../../../public/js/pi"
+    import ScChartDistribution from "../../../../../components/ScChartDistribution";
+    import ScChart from "../../../../../components/ScChart";
+    import {Pi} from "../../../../../../public/js/pi"
 
     export default {
         name: "statistiqueVariableCumulee",

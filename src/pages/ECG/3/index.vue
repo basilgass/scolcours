@@ -1,10 +1,12 @@
 <template>
-    <div class="3C">3ème ECG</div>
+    <sc-annee-titre ecg annee="3"></sc-annee-titre>
 </template>
 
 <script>
+    import ScAnneeTitre from "../../../components/ScAnneeTitre";
     export default {
-        name: "c-3"
+        name: "c-3",
+        components: {ScAnneeTitre}
     }
 </script>
 

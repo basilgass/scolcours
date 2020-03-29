@@ -12,7 +12,6 @@ if($output->data['type']==='feuille-de-route'){
         WHERE `users`.`username`=:username");
 
     $stm->execute(['username'=>$output->data['username']]);
-
     $output->exercices = $stm->fetchAll(PDO::FETCH_OBJ);
 }
 else if($output->data['type']==='feuille-de-route-status'){
@@ -22,5 +21,30 @@ else if($output->data['type']==='feuille-de-route-status'){
         'id'=>$output->data['id'],
         'status'=>$output->data['status']
     ]);
+}
+else if($output->data['type']==='admin-feuille-de-route'){
+    $stm = $dbh->prepare("SELECT
+                nom,
+                MIN(modification) as modification,
+                GROUP_CONCAT(status ORDER BY exercices.id SEPARATOR ';') as status,
+                GROUP_CONCAT(exercice ORDER BY exercices.id SEPARATOR ';') as exercices
+            FROM `users`
+            LEFT JOIN `feuille-de-route` ON `feuille-de-route`.id_eleve=users.id
+            LEFT JOIN `exercices` ON `exercices`.id=`feuille-de-route`.id_exercice
+            WHERE `classe`=:classe
+            GROUP BY `users`.id
+    ");
+    /* AND `chapitre`=:chapitre */
+    /*$stm->execute([
+        'classe'=>$output->data['classe'],
+        'chapitre'=>$output->data['chapitre'],
+    ]);*/
+
+    $stm->execute([
+        'classe'=>$output->data['classe']
+    ]);
+
+    //$output->query = $stm->queryString();
+    $output->fetch = $stm->fetchAll(PDO::FETCH_OBJ);
 }
 echo json_encode($output);

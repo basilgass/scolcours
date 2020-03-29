@@ -84,13 +84,13 @@
     </section>
 </template>
 <script>
-    import ScDefinitions from "../../../../components/ScDefinitions";
-    import ScExemple from "../../../../components/ScExemple";
-    import ScExempleEtape from "../../../../components/ScExempleEtape";
-    import ScExempleTexte from "../../../../components/ScExempleTexte";
-    import ScExempleDeuxColonnes from "../../../../components/ScExempleTexteDeuxColonnes";
-    import ScTheoreme from "../../../../components/ScTheoreme";
-    import BaseAlert from "../../../../components/BaseAlert";
+    import ScDefinitions from "../../../../../components/ScDefinitions";
+    import ScExemple from "../../../../../components/ScExemple";
+    import ScExempleEtape from "../../../../../components/ScExempleEtape";
+    import ScExempleTexte from "../../../../../components/ScExempleTexte";
+    import ScExempleDeuxColonnes from "../../../../../components/ScExempleTexteDeuxColonnes";
+    import ScTheoreme from "../../../../../components/ScTheoreme";
+    import BaseAlert from "../../../../../components/BaseAlert";
 
     export default {
         name: 'GeometrieVectorielleNorme',

@@ -1,6 +1,7 @@
 <template>
-  <div id="scolcours-default-layout">
+  <div id="scolcours-theorie-layout">
     <sc-navbar></sc-navbar>
+    <sc-toc-drawer></sc-toc-drawer>
     <v-content>
       <v-container id="scolcours-content">
         <v-row justify="center">
@@ -21,9 +22,9 @@
 </style>
 <script>
   import ScNavbar from "../components/UserInterface/ScNavbar";
-  import ScTocDrawer from "../components/UserInterface/ScTocDrawer";
   import ScFooter from "../components/UserInterface/ScFooter";
+  import ScTocDrawer from "../components/UserInterface/ScTocDrawer";
   export default {
-    components: {ScFooter, ScNavbar}
+    components: {ScTocDrawer, ScFooter, ScNavbar}
   }
 </script>

@@ -103,7 +103,7 @@
                         username: localStorage.getItem('ScolcoursGymnaseUser')
                     }
                 }).then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     that.exercices = response.data.exercices;
                 }).catch(e => {
                     console.log(e);

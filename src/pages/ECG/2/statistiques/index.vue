@@ -1,6 +1,5 @@
 <template>
     <div>
-        <ScTocDrawer></ScTocDrawer>
         <v-container>
             <div class="display-3 mt-10">Statistiques</div>
             <sc-breadcrumbs />
@@ -41,15 +40,14 @@
 
 
 <script>
-    import ScTocDrawer from "../../../components/UserInterface/ScTocDrawer";
-    import ScDefinitions from "../../../components/ScDefinitions";
-    import StatistiqueVariableQuantitative from "./__statistiques__/statistiqueVariableQuantitative";
-    import StatistiqueVariableQualitative from "./__statistiques__/statistiqueVariableQualitative";
-    import StatistiqueVariableCumulee from "./__statistiques__/statistiqueVariableCumulee";
-    import StatistiqueAutresGraphiques from "./__statistiques__/statistiqueAutresGraphiques";
-    import BaseAlert from "../../../components/BaseAlert";
+    import ScDefinitions from "../../../../components/ScDefinitions";
+    import StatistiqueVariableQuantitative from "./__theorie__/statistiqueVariableQuantitative";
+    import StatistiqueVariableQualitative from "./__theorie__/statistiqueVariableQualitative";
+    import StatistiqueVariableCumulee from "./__theorie__/statistiqueVariableCumulee";
+    import StatistiqueAutresGraphiques from "./__theorie__/statistiqueAutresGraphiques";
+    import BaseAlert from "../../../../components/BaseAlert";
     import renderMathInElement from "katex/dist/contrib/auto-render.min";
-    import ScBreadcrumbs from "../../../components/UserInterface/ScBreadcrumbs";
+    import ScBreadcrumbs from "../../../../components/UserInterface/ScBreadcrumbs";
 
     function shuffleArray(d){
         for (let i = d.length - 1; i > 0; i--) {
@@ -115,13 +113,14 @@
 
      export default {
         name: "statistiques",
+         layout: 'theorie',
         components: {
             ScBreadcrumbs,
             BaseAlert,
             StatistiqueAutresGraphiques,
             StatistiqueVariableCumulee,
             StatistiqueVariableQualitative,
-            StatistiqueVariableQuantitative, ScDefinitions, ScTocDrawer},
+            StatistiqueVariableQuantitative, ScDefinitions},
         data: function () {
             return {
                 items: [

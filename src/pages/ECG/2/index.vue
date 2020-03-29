@@ -1,26 +1,27 @@
 <template>
     <v-container class="2C">
-        <v-row class="row">
-            <v-col><h2 class="display-1">Ecole de culture générale, 2ème année</h2></v-col>
-        </v-row>
+        <ScAnneeTitre ecg annee="2"></ScAnneeTitre>
+
         <v-row>
             <v-col>
                 <v-btn to="statistiques" append>Statistiques</v-btn>
             </v-col>
         </v-row>
-
         <v-row>
             <v-col><h1 class="display-1 text-center ma-10">Programme en cours</h1></v-col>
         </v-row>
+
         <ScPlanningTimeLine :timeline="timeline"/>
     </v-container>
 </template>
 
 <script>
     import ScPlanningTimeLine from "../../../components/ScPlanningTimeLine";
+    import ScAnneeTitre from "../../../components/ScAnneeTitre";
+
     export default {
         name: "c-2",
-        components: {ScPlanningTimeLine},
+        components: {ScAnneeTitre, ScPlanningTimeLine},
         data: function(){
             return {
                 timeline: [
@@ -71,6 +72,3 @@
     }
 </script>
 
-<style scoped>
-
-</style>

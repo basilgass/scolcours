@@ -1,8 +1,8 @@
 <template>
     <v-container class="1M">
-        <v-row>
-            <v-col><h2 class="display-1">Ecole de maturité, 1ère année</h2></v-col>
-        </v-row>
+
+        <sc-annee-titre></sc-annee-titre>
+
         <v-row>
             <v-col>
                 <v-btn to="geometrievectorielle" append>Géométrie vectorielle (théorie)</v-btn>
@@ -19,9 +19,10 @@
 <script>
 
     import ScPlanningTimeLine from "../../../components/ScPlanningTimeLine";
+    import ScAnneeTitre from "../../../components/ScAnneeTitre";
     export default {
         name: "m-1",
-        components: {ScPlanningTimeLine},
+        components: {ScAnneeTitre, ScPlanningTimeLine},
         data: function(){
             return {
                 timeline: [

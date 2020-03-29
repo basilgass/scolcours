@@ -57,8 +57,8 @@
 
 
 <script>
-    import ScChart from "../../../../components/ScChart";
-    import {Pi} from "../../../../../public/js/pi"
+    import ScChart from "../../../../../components/ScChart";
+    import {Pi} from "../../../../../../public/js/pi"
 
     export default {
         name: "statistiqueAutresGraphiques",

@@ -52,9 +52,9 @@
 
 
 <script>
-    import ScChartDistribution from "../../../../components/ScChartDistribution";
-    import ScChart from "../../../../components/ScChart";
-    import {Pi} from "../../../../../public/js/pi"
+    import ScChartDistribution from "../../../../../components/ScChartDistribution";
+    import ScChart from "../../../../../components/ScChart";
+    import {Pi} from "../../../../../../public/js/pi"
 
     function shuffleArray(d){
         for (let i = d.length - 1; i > 0; i--) {

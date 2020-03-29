@@ -1,14 +1,14 @@
 <template>
     <v-container>
-        <v-row>
-            <v-col><h2 class="display-1">Ecole de maturité, 2ème année</h2></v-col>
-        </v-row>
+        <sc-annee-titre annee="2"></sc-annee-titre>
     </v-container>
 </template>
 
 <script>
+    import ScAnneeTitre from "../../../components/ScAnneeTitre";
     export default {
-        name: "m-2"
+        name: "m-2",
+        components: {ScAnneeTitre}
     }
 </script>
 
