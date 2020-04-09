@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <div class="display-3 mt-10">Géométrie vectorielle</div>
+        <sc-titre-page>Géométrie vectorielle</sc-titre-page>
         <sc-breadcrumbs />
         <v-switch
                 class="mt-0"
@@ -21,21 +21,27 @@
 
         <GeometrieVectorielleNorme :vital="resume" />
 
+        <GeometrieVectorielleScalaire :vital="resume" />
+
     </v-container>
 </template>
 
 <script>
     import ScBreadcrumbs from "../../../../components/UserInterface/ScBreadcrumbs";
     import renderMathInElement from "katex/dist/contrib/auto-render.min";
-    import GeometrieVectorielleVecteurs from "./__theorie__/GeometrieVectorielleVecteurs";
-    import GeometrieVectorielleBase from "./__theorie__/GeometrieVectorielleBase";
-    import GeometrieVectorielleRepere from "./__theorie__/GeometrieVectorielleRepere";
-    import GeometrieVectorielleNorme from "./__theorie__/GeometrieVectorielleNorme";
+    import GeometrieVectorielleVecteurs from "./__theorie__/GeometrieVectorielle1Vecteurs";
+    import GeometrieVectorielleBase from "./__theorie__/GeometrieVectorielle2Base";
+    import GeometrieVectorielleRepere from "./__theorie__/GeometrieVectorielle3Repere";
+    import GeometrieVectorielleNorme from "./__theorie__/GeometrieVectorielle4Norme";
+    import GeometrieVectorielleScalaire from "./__theorie__/GeometrieVectorielle5Scalaire";
+    import ScTitrePage from "../../../../components/Titles/ScTitre0Page";
 
     export default {
         name: "geometrievectorielle",
         layout: 'theorie',
         components: {
+            ScTitrePage,
+            GeometrieVectorielleScalaire,
             ScBreadcrumbs,
             GeometrieVectorielleNorme,
             GeometrieVectorielleVecteurs,

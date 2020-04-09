@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="headline mt-10-mb-5" id="bases">Bases</div>
+        <sc-titre-section id="base">Base</sc-titre-section>
         <p>
             Une base est un couple de vecteur non colinéaires, notée \( \mathcal{B} = \left(
             \overrightarrow{e_1};\,\overrightarrow{e_2} \right) \)
@@ -11,88 +11,93 @@
             \(\overrightarrow{v} = a_1 \cdot \overrightarrow{e_1} + a_2 \cdot \overrightarrow{e_2}\).
         </p>
 
-        <BaseAlert>
+        <sc-theoreme>
             \[\overrightarrow{v}=\begin{pmatrix}a_1\\a_2\end{pmatrix} \Longleftrightarrow \overrightarrow{v} = a_1 \cdot
             \overrightarrow{e_1} + a_2 \cdot \overrightarrow{e_2}\]
-        </BaseAlert>
+        </sc-theoreme>
 
-        <div class="title mt-10 mb-5 colinearite-vecteurs">Colinéarité de deux vecteurs</div>
-
+        <sc-titre-partie id="colinearite-vecteurs">Colinéarité de deux vecteurs</sc-titre-partie>
         <p v-show="!vital">
             Deux vecteurs \( \overrightarrow{v} \) et \( \overrightarrow{w} \) sont colinéaires
             s'il existe un nombre \( \lambda \) tel que \( \overrightarrow{v} = \lambda \cdot \overrightarrow{w} \)
         </p>
-        <BaseAlert class="text-center">
+        <sc-theoreme class="text-center">
             \[ \overrightarrow{v} \text{ et } \overrightarrow{w} \text{ colinéaires } \Longleftrightarrow \overrightarrow{v} = \lambda \cdot  \overrightarrow{w} \]
-        </BaseAlert>
+        </sc-theoreme>
 
-        <sc-exemple v-show="!vital">
+        <sc-processus v-show="!vital" width="80vw">
+            <sc-boite-titre center>Montrer que des vecteurs sont colinéaires</sc-boite-titre>
             \[ \overrightarrow{u}=\begin{pmatrix}4\\-1\end{pmatrix}
             \qquad
             \overrightarrow{v}=\begin{pmatrix}12\\-3\end{pmatrix}
             \qquad
             \overrightarrow{w}=\begin{pmatrix}-8\\3\end{pmatrix}\]
 
-            <ScExempleEtape>1ère méthode: recherche d'un facteur</ScExempleEtape>
+            <ScBoiteEtape>1ère méthode: recherche d'un facteur</ScBoiteEtape>
 
             <v-row>
                 <v-col cols="12" md="6">
-                    <ScExempleTexte>\( \overrightarrow{u} \) et \( \overrightarrow{v}\) sont-ils colinéaires ?</ScExempleTexte>
+                    <ScBoiteTexte>\( \overrightarrow{u} \) et \( \overrightarrow{v}\) sont-ils colinéaires ?</ScBoiteTexte>
                     \[\Downarrow\]
                     \[ \frac{12}{4} \stackrel{?}{=} \frac{-3}{-1} \implies 3 \stackrel{?}{=} 3\]
                     \[\Downarrow\]
-                    <ScExempleTexte>Les deux valeurs sont égales</ScExempleTexte>
+                    <ScBoiteTexte>Les deux valeurs sont égales</ScBoiteTexte>
                     \[\Downarrow\]
-                    <sc-exemple-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) sont colinéaires</sc-exemple-texte>
+                    <sc-boite-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) sont colinéaires</sc-boite-texte>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <ScExempleTexte>\( \overrightarrow{u} \) et \( \overrightarrow{w}\) sont-ils colinéaires ?</ScExempleTexte>
+                    <ScBoiteTexte>\( \overrightarrow{u} \) et \( \overrightarrow{w}\) sont-ils colinéaires ?</ScBoiteTexte>
                     \[\Downarrow\]
                     \[ \frac{-8}{4} \stackrel{?}{=} \frac{3}{-1} \implies -2 \stackrel{?}{=} -3\]
                     \[\Downarrow\]
-                    <ScExempleTexte>Les deux valeurs ne sont pas égales</ScExempleTexte>
+                    <ScBoiteTexte>Les deux valeurs ne sont pas égales</ScBoiteTexte>
                     \[\Downarrow\]
-                    <sc-exemple-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) ne sont pas colinéaires</sc-exemple-texte>
+                    <sc-boite-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) ne sont pas colinéaires</sc-boite-texte>
                 </v-col>
             </v-row>
 
-            <sc-exemple-etape>2ème méthode: déterminant</sc-exemple-etape>
+            <sc-boite-etape>2ème méthode: déterminant</sc-boite-etape>
             <v-row>
                 <v-col cols="12" md="6">
-                    <ScExempleTexte>\( \overrightarrow{u} \) et \( \overrightarrow{v}\) sont-ils colinéaires ?</ScExempleTexte>
+                    <ScBoiteTexte>\( \overrightarrow{u} \) et \( \overrightarrow{v}\) sont-ils colinéaires ?</ScBoiteTexte>
                     \[\Downarrow\]
                     \[ \begin{vmatrix}4 & 12 \\ -1 & -3\end{vmatrix} = 4\cdot (-3) - (-1)\cdot 12 = 0\]
                     \[\Downarrow\]
-                    <ScExempleTexte>Le déterminant est nul</ScExempleTexte>
+                    <ScBoiteTexte>Le déterminant est nul</ScBoiteTexte>
                     \[\Downarrow\]
-                    <sc-exemple-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) sont colinéaires</sc-exemple-texte>
+                    <sc-boite-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) sont colinéaires</sc-boite-texte>
                 </v-col>
                 <v-col cols="12" md="6">
-                    <ScExempleTexte>\( \overrightarrow{u} \) et \( \overrightarrow{w}\) sont-ils colinéaires ?</ScExempleTexte>
+                    <ScBoiteTexte>\( \overrightarrow{u} \) et \( \overrightarrow{w}\) sont-ils colinéaires ?</ScBoiteTexte>
                     \[\Downarrow\]
                     \[ \begin{vmatrix}4 & -8 \\ -1 & 3\end{vmatrix} = 4\cdot 3 - (-1)\cdot(-8) = 4\]
                     \[\Downarrow\]
-                    <ScExempleTexte>Le déterminant est non nul</ScExempleTexte>
+                    <ScBoiteTexte>Le déterminant est non nul</ScBoiteTexte>
                     \[\Downarrow\]
-                    <sc-exemple-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) ne sont pas colinéaires</sc-exemple-texte>
+                    <sc-boite-texte>\( \overrightarrow{u} \) et \( \overrightarrow{v} \) ne sont pas colinéaires</sc-boite-texte>
                 </v-col>
             </v-row>
 
 
-        </sc-exemple>
+        </sc-processus>
 
     </section>
 </template>
 <script>
 
-    import BaseAlert from "../../../../../components/BaseAlert"
-    import ScExemple from "../../../../../components/ScExemple";
-    import ScExempleEtape from "../../../../../components/ScExempleEtape";
-    import ScExempleTexte from "../../../../../components/ScExempleTexte";
+    import BaseAlert from "../../../../../components/Boxes/ScBaseAlert"
+    import ScExemple from "../../../../../components/Boxes/ScBaseExemple";
+    import ScBoiteEtape from "../../../../../components/Boxes/ScBoiteEtape";
+    import ScBoiteTexte from "../../../../../components/Boxes/ScBoiteTexte";
+    import ScTheoreme from "../../../../../components/Boxes/ScBaseAlertTheoreme";
+    import ScProcessus from "../../../../../components/Boxes/ScBaseAlertProcessus";
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
+    import ScBoiteTitre from "../../../../../components/Boxes/ScBoiteTitre";
 
     export default {
         name: 'GeometrieVectorielleBase',
-        components: {ScExempleTexte, ScExempleEtape, ScExemple, BaseAlert},
+        components: {ScBoiteTitre, ScTitrePartie, ScTitreSection, ScProcessus, ScTheoreme, ScBoiteTexte, ScBoiteEtape, ScExemple, BaseAlert},
         props: {
             chaslesCheck: {},
             chaslesNouveau: {},

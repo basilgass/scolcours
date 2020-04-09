@@ -16,8 +16,13 @@
         props: {
             items: {type: String, default: ''}
         },
-        computed: {
-            itemsArray: function(){
+        data: function(){
+            return {
+                itemsArray: []
+            }
+        },
+        methods: {
+            update: function(){
                 let pages;
                 if(this.items===''){
                     pages = window.location.pathname.slice(1).split('/')
@@ -46,11 +51,20 @@
                         disabled: i===(pages.length-1),
                         href: href.join('/')
                     });
-
                 }
 
-                return arr;
+                // Last page
+                let pageTitle = this.$parent.$el.querySelector('.nav-toc-page');
+                if(pageTitle!==null){
+                    arr[arr.length-1].text=pageTitle.innerText;
+                }
+
+
+                this.itemsArray = arr;
             }
+        },
+        mounted() {
+            this.update();
         }
     }
 </script>

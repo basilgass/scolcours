@@ -5,24 +5,22 @@
 
         <v-row>
             <v-col>
-                <v-btn to="geometrievectorielle" append>Géométrie vectorielle (théorie)</v-btn>
+                <v-btn to="geometrievectorielle" append>Géométrie vectorielle (théorie)</v-btn><br/>
+                <v-btn to="geometrievectorielle/exercice" append>Exercices</v-btn>
             </v-col>
         </v-row>
 
-        <v-row>
-            <v-col><h1 class="display-1 text-center ma-10">Programme en cours</h1></v-col>
-        </v-row>
-        <ScPlanningTimeLine :timeline="timeline"/>
+        <v-btn x-large class="mt-10 mb-10" href="https://moodle.gyyv.vd.ch/course/view.php?id=70"  color="primary">Planning du cours sur Moodle</v-btn>
+
     </v-container>
 </template>
 
 <script>
 
-    import ScPlanningTimeLine from "../../../components/ScPlanningTimeLine";
     import ScAnneeTitre from "../../../components/ScAnneeTitre";
     export default {
         name: "m-1",
-        components: {ScAnneeTitre, ScPlanningTimeLine},
+        components: {ScAnneeTitre},
         data: function(){
             return {
                 timeline: [

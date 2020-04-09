@@ -6,23 +6,20 @@
         <v-row>
             <v-col>
                 <v-btn to="equations2eme" append>Equations du 2ème degré</v-btn>
+                <v-btn to="equations2eme/exercice" append>Exercices</v-btn>
             </v-col>
         </v-row>
 
-        <v-row>
-            <v-col><h1 class="display-1 text-center ma-10">Programme en cours</h1></v-col>
-        </v-row>
-        <ScPlanningTimeLine :timeline="timeline"/>
+        <v-btn x-large class="mt-10 mb-10" href="https://moodle.gyyv.vd.ch/course/view.php?id=298" color="primary">Planning du cours sur Moodle</v-btn>
     </v-container>
 </template>
 
 <script>
-    import ScPlanningTimeLine from "../../../components/ScPlanningTimeLine";
     import ScAnneeTitre from "../../../components/ScAnneeTitre";
 
     export default {
         name: "c-1",
-        components: {ScAnneeTitre, ScPlanningTimeLine},
+        components: {ScAnneeTitre},
         data: function(){
             return {
             timeline: [

@@ -1,11 +1,11 @@
 <template>
     <div>
         <v-container >
-            <div class="display-3 mt-10">Equations du 2ème degré</div>
+            <sc-titre-page>Equations du 2ème degré</sc-titre-page>
             <sc-breadcrumbs />
 
             <section>
-                <div class="headline ">Résolution sans la formule</div>
+                <sc-titre-section id="sansformule">Résolution sans la formule</sc-titre-section>
                 <p>Dans certains cas, il est possible de résoudre des équations du 2ème degré sans la formule en appliquant
                 la racine carrée de part et d'autre du signe <kbd><span v-katex="'='"></span></kbd>.</p>
                 <p class="text-center">
@@ -54,8 +54,7 @@
             <v-divider class="mb-10"></v-divider>
 
             <section>
-                <div class="headline">Résolution avec la formule</div>
-
+                <sc-titre-section id="avecformule">Résolution avec la formule</sc-titre-section>
                 <p>La résolution par la formule commence par ordonnée l'équation sous une de ses forme canonique:
 
                 <BaseAlert>
@@ -130,7 +129,7 @@
                     </v-hover>
                 </v-row>
 
-                <v-row justify="space-around mt-10">
+                <v-row justify="space-around" class="mt-10">
                     <v-hover v-slot:default="{ hover }">
                         <v-sheet :elevation="hover ? 16 : 2" width="500px">
                             <v-container>
@@ -163,7 +162,7 @@
                     </v-hover>
                 </v-row>
 
-                <v-row justify="space-around mt-10">
+                <v-row justify="space-around" class="mt-10">
                     <v-hover v-slot:default="{ hover }">
                         <v-sheet :elevation="hover ? 16 : 2" width="500px">
                             <v-container>
@@ -189,7 +188,7 @@
                     </v-hover>
                 </v-row>
 
-                <v-row justify="space-around mt-10">
+                <v-row justify="space-around" class="mt-10">
                     <v-hover v-slot:default="{ hover }">
                         <v-sheet :elevation="hover ? 16 : 2" width="500px">
                             <v-container>
@@ -213,7 +212,7 @@
                     </v-hover>
                 </v-row>
 
-                <v-row class="justify-center">
+                <v-row justify="center">
                     <v-col cols="12" sm="6" lg="4" xl="3">
                         <v-card class="flex">
                             <v-card-title>S'entraîner</v-card-title>
@@ -239,19 +238,21 @@
 </template>
 
 <script>
-    import ScTocDrawer from "../../../components/UserInterface/ScTocDrawer";
+    import ScTocDrawer from "../../../../components/UserInterface/ScTocDrawer";
     import renderMathInElement from "katex/dist/contrib/auto-render.min";
-    import {Pi} from "../../../../public/js/pi.js"
-    import KatexQuestionReponse from "../../../components/KatexQuestionReponse";
-    import KatexAlignedEquation from "../../../components/KatexAlignedEquation";
-    import BaseAlert from "../../../components/BaseAlert";
-    import ScBreadcrumbs from "../../../components/UserInterface/ScBreadcrumbs";
+    import {Pi} from "../../../../../public/js/pi.js"
+    import KatexQuestionReponse from "../../../../components/KatexQuestionReponse";
+    import KatexAlignedEquation from "../../../../components/KatexAlignedEquation";
+    import BaseAlert from "../../../../components/Boxes/ScBaseAlert";
+    import ScBreadcrumbs from "../../../../components/UserInterface/ScBreadcrumbs";
+    import ScTitreSection from "../../../../components/Titles/ScTitre1Section";
+    import ScTitrePage from "../../../../components/Titles/ScTitre0Page";
 
 
     export default {
         name: "equations2eme",
         layout: 'theorie',
-        components: {ScBreadcrumbs, BaseAlert, KatexAlignedEquation, KatexQuestionReponse, ScTocDrawer},
+        components: {ScTitrePage, ScTitreSection, ScBreadcrumbs, BaseAlert, KatexAlignedEquation, KatexQuestionReponse, ScTocDrawer},
         data: function () {
             return {
                 exNb: 1,

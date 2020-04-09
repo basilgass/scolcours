@@ -11,7 +11,7 @@
 </template>
 <script>
     export default {
-        name: 'sc-exemple',
+        name: 'scExemple',
         props: {
             'width': {type: String, default: "75vw"}
         }

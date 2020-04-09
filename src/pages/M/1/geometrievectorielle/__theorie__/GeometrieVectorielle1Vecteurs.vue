@@ -1,8 +1,9 @@
 <template>
     <section>
-        <div class="headline mt-10-mb-5" id="vecteurs">Vecteurs</div>
-        <div class="title mt-10 mb-5 est-vital">Définitions</div>
-        <scDefinitions class="est-vital" :definitions="definitions"/>
+        <sc-titre-section id="vecteurs">Vecteurs</sc-titre-section>
+
+        <sc-titre-partie vital>Définitions</sc-titre-partie>
+        <scDefinitions :definitions="definitions"/>
 
         <div v-show="!vital">
             <div id="svgDefinitions"></div>
@@ -18,22 +19,23 @@
 
         <div v-show="!vital">
             <v-divider class="mt-5 mb-5"></v-divider>
-            <div class="title">Somme de deux vecteurs</div>
+            <sc-titre-partie>Somme de deux vecteurs</sc-titre-partie>
 
             <p class="mb-0 text--disabled">Bouger les cercles pour modifier les vecteurs</p>
             <div id="svgSommeVecteurs"></div>
         </div>
 
         <v-divider class="mt-5 mb-5"></v-divider>
-        <div class="title est-vital">Combinaison linéaire</div>
-        <div class="est-vital">
+
+        <sc-titre-partie>Combinaison linéaire</sc-titre-partie>
+        <div>
             <p>Si un vecteur peut s'écrire comme la somme de deux autres, on dit qu'il s'agit d'une
             combinaison linéaire</p>
             <p>\(\overrightarrow{a} = x\cdot\overrightarrow{b} + y\cdot\overrightarrow{c}\), où \(x,y \in \mathbb{R}
                 \)</p>
         </div>
 
-        <div class="title">Relation de Chasles</div>
+        <sc-titre-partie>Relation de Chasles</sc-titre-partie>
         <p>
             \(
             \overrightarrow{A\textcolor{red}{B}}+\overrightarrow{\textcolor{red}{B}C}=\overrightarrow{AC}
@@ -75,6 +77,8 @@
     import {Pi} from "../../../../../../public/js/pi";
     import {GeomPi} from "../../../../../../public/js/geompi";
     import katex from "katex";
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
 
     function svgDefinitions() {
         // Ajout des vecteurs
@@ -162,7 +166,7 @@
 
     export default {
         name: 'GeometrieVectorielleVecteurs',
-        components: {ScDefinitions},
+        components: {ScTitrePartie, ScTitreSection, ScDefinitions},
         props: {
             vital: {type: Boolean, default: true}
         },

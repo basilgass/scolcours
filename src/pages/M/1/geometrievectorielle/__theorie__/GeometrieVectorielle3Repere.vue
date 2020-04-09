@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="headline mt-10-mb-5" id="reperes">Repères</div>
+        <sc-titre-section id="reperes">Repères</sc-titre-section>
         <p>
             Un repère est un triplet \( \mathcal{R} = \left( O;\,\overrightarrow{e_1};\,\overrightarrow{e_2} \right) \)
             composé
@@ -20,13 +20,13 @@
                 Les coordonnées d'un point \(A\) correspondent aux composantes du vecteur \(\overrightarrow{OA}\)</p>
         </div>
 
-        <BaseAlert>
+        <sc-theoreme>
             \[\overrightarrow{OA}=\begin{pmatrix}a_1\\a_2\end{pmatrix}
             \Longleftrightarrow
             A \left( a_1;\,a_2\right)\]
-        </BaseAlert>
+        </sc-theoreme>
 
-        <div class="title mt-10 mb-5">Rapport de section</div>
+        <sc-titre-partie>Rapport de section</sc-titre-partie>
         <p>
             Soient trois points alignés A, B et P, distincts deux à deux. Les vecteurs \(\overrightarrow{AP}\) et
             \(\overrightarrow{BP}\) sont colinéaires.<br>
@@ -35,48 +35,48 @@
         </p>
 
         <sc-exemple v-show="!vital" width="550px">
-            <sc-exemple-texte>
+            <sc-boite-texte>
                 <p class="mb-0 mt-5 text--disabled">Bouger les points pour modifier le rapport de section</p>
                 <div id="svg-rapport-section"></div>
                 <div class="mt-5 mb-5">Rapport de section: <span class="ml-3" id="rapportSection"></span></div>
-            </sc-exemple-texte>
+            </sc-boite-texte>
         </sc-exemple>
 
 
-        <div v-show="!vital" class="title mt-5 mb-5">Processus</div>
-        <v-row v-show="!vital" justify="space-around">
-            <v-hover v-slot:default="{ hover }">
-                <v-sheet width="70vw" :elevation="hover ? 16:2" class="pt-5 pb-5 mt-10 mb-10">
-                    <v-container>
-                        <div class="no-toc subtitle-1">
-                            1. Calculer les vecteurs \( \overrightarrow{AP} \) et \( \overrightarrow{BP} \)
-                        </div>
-                        \[A(4;2),\,B(7;-3)\text{ et } P(-2;12) \]
-                        \[\overrightarrow{AP}=\begin{pmatrix}-2-4\\12-2\end{pmatrix}=\begin{pmatrix}-6\\10\end{pmatrix}\]
-                        \[\overrightarrow{BP}=\begin{pmatrix}-2-7\\12-(-3)\end{pmatrix}=\begin{pmatrix}-9\\15\end{pmatrix}\]
+        <div v-show="!vital">
+            <sc-titre-partie>Processus</sc-titre-partie>
+            <sc-processus v-show="!vital" width="70vw">
+                <div class="subtitle-1">
+                    1. Calculer les vecteurs \( \overrightarrow{AP} \) et \( \overrightarrow{BP} \)
+                </div>
+                \[A(4;2),\,B(7;-3)\text{ et } P(-2;12) \]
+                \[\overrightarrow{AP}=\begin{pmatrix}-2-4\\12-2\end{pmatrix}=\begin{pmatrix}-6\\10\end{pmatrix}\]
+                \[\overrightarrow{BP}=\begin{pmatrix}-2-7\\12-(-3)\end{pmatrix}=\begin{pmatrix}-9\\15\end{pmatrix}\]
 
-                        <div class="no-toc subtitle-1 mt-10">
-                            2. Les trois points sont-ils alignés ? <v-btn class="float-right" x-small @click="$vuetify.goTo('.colinearite-vecteurs')">Méthode alternative</v-btn>
-                            <div class="caption mb-5 ml-5">
-                                <v-icon small class="mr-3">mdi-alert</v-icon>
-                                S'ils ne le sont pas, on ne peut pas calculer le rapport de section
-                            </div>
-                        </div>
-                        \[ \begin{vmatrix}-6&-9\\10&15\end{vmatrix} = (-6)\cdot 15 - 10\cdot(-9)=0\]
+                <div class="subtitle-1 mt-10">
+                    2. Les trois points sont-ils alignés ?
+                    <v-btn class="float-right" x-small @click="$vuetify.goTo('#colinearite-vecteurs')">Méthode alternative</v-btn>
+                    <div class="caption ml-5">
+                        Trois points alignés revient à montrer que les deux vecteurs sont colinéaires !
+                    </div>
+                    <div class="caption mb-5 ml-5">
+                        <v-icon small class="mr-3">mdi-alert</v-icon>
+                        S'ils ne le sont pas, on ne peut pas calculer le rapport de section
+                    </div>
+                </div>
+                \[ \begin{vmatrix}-6&-9\\10&15\end{vmatrix} = (-6)\cdot 15 - 10\cdot(-9)=0\]
 
-                        <div class="no-toc subtitle-1 mt-10">
-                            3. Calculer le rapport de section
-                            <div class="caption mb-5 ml-5">utiliser soit les 1<sup>ères</sup> compposantes, soit les
-                                2<sup>èmes</sup></div>
-                        </div>
-                        \[ \overrightarrow{AP} = \lambda\cdot\overrightarrow{BP} \]
-                        \[ \Downarrow \]
-                        \[ \lambda = \frac{(AP)_1}{(BP)_1}= \frac{-6}{-9} = \frac{2}{3}\]
-                        \[ \lambda = \frac{(AP)_2}{(BP)_2}= \frac{10}{15} = \frac{2}{3} \]
-                    </v-container>
-                </v-sheet>
-            </v-hover>
-        </v-row>
+                <div class="subtitle-1 mt-10">
+                    3. Calculer le rapport de section
+                    <div class="caption mb-5 ml-5">utiliser soit les 1<sup>ères</sup> compposantes, soit les
+                        2<sup>èmes</sup></div>
+                </div>
+                \[ \overrightarrow{AP} = \lambda\cdot\overrightarrow{BP} \]
+                \[ \Downarrow \]
+                \[ \lambda = \frac{(AP)_1}{(BP)_1}= \frac{-6}{-9} = \frac{2}{3}\]
+                \[ \lambda = \frac{(AP)_2}{(BP)_2}= \frac{10}{15} = \frac{2}{3} \]
+            </sc-processus>
+        </div>
 
         <v-row v-show="!vital" class="justify-center">
             <v-col cols="12" sm="8" lg="6" xl="4">
@@ -90,7 +90,7 @@
                         <div v-katex="responseRSComputed" v-bind:class="{'green--text': rsCheck()}"></div>
                         <v-input messages="Ecrire la fraction réduite" :success="rsCheck()">
                             <v-text-field v-on:keyup.enter="rsNouveau" :success="rsCheck()"
-                                          class="d-inline-block headline no-toc font-weight-thin"
+                                          class="d-inline-block headline font-weight-thin"
                                           v-model="reponseRS"></v-text-field>
                         </v-input>
                     </v-card-text>
@@ -104,12 +104,16 @@
     </section>
 </template>
 <script>
-    import BaseAlert from "../../../../../components/BaseAlert"
+    import BaseAlert from "../../../../../components/Boxes/ScBaseAlert"
     import {Pi} from "../../../../../../public/js/pi";
     import katex from "katex";
     import {SVG} from "@svgdotjs/svg.js";
-    import ScExemple from "../../../../../components/ScExemple";
-    import ScExempleTexte from "../../../../../components/ScExempleTexte";
+    import ScExemple from "../../../../../components/Boxes/ScBaseExemple";
+    import ScBoiteTexte from "../../../../../components/Boxes/ScBoiteTexte";
+    import ScProcessus from "../../../../../components/Boxes/ScBaseAlertProcessus";
+    import ScTheoreme from "../../../../../components/Boxes/ScBaseAlertTheoreme";
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
 
     function rapportSectionFN() {
         function calculer(){
@@ -198,7 +202,7 @@
 
     export default {
         name: 'GeometrieVectorielleRepere',
-        components: {ScExempleTexte, ScExemple, BaseAlert},
+        components: {ScTitrePartie, ScTitreSection, ScTheoreme, ScProcessus, ScBoiteTexte, ScExemple, BaseAlert},
         props: {
             vital: {type: Boolean, default: true}
         },

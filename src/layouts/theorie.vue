@@ -10,6 +10,7 @@
           </v-col>
         </v-row>
       </v-container>
+
     </v-content>
     <sc-footer></sc-footer>
   </div>
@@ -25,6 +26,10 @@
   import ScFooter from "../components/UserInterface/ScFooter";
   import ScTocDrawer from "../components/UserInterface/ScTocDrawer";
   export default {
-    components: {ScTocDrawer, ScFooter, ScNavbar}
+    components: {ScTocDrawer, ScFooter, ScNavbar},
+    data: function(){
+      return {
+      }
+    }
   }
 </script>

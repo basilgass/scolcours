@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="headline mt-10 mb-5">Variable quantitative</div>
+        <sc-titre-section id="variable-quantitative">Variable quantitative</sc-titre-section>
 
         <div>
             Avec des variables quantitatives, on regroupe les modalités (valeurs possibles) par <strong>classes</strong>.
@@ -17,7 +17,7 @@
         </div>
 
         <div class="mt-4">
-            <span class="title">Données brutes</span>
+            <sc-titre-sous-titre>Données brutes</sc-titre-sous-titre>
             <v-switch class="ml-5 d-inline-block" v-model="distributionContinueRawDataAfficher" :label="`${distributionContinueRawDataAfficher?'Cacher':'Afficher'} les données brutes`"></v-switch>
         </div>
         <v-slide-x-transition>
@@ -28,7 +28,7 @@
             </v-row>
         </v-slide-x-transition>
 
-        <div class="title mt-4">Tableau de distribution par classes</div>
+        <sc-titre-partie>Tableau de distribution par classe</sc-titre-partie>
         <sc-chart-distribution
                 :chart-data=distributionContinue
                 :edit-mode=editMode
@@ -37,7 +37,7 @@
                 v-on:frequences="updateGraphiques"
         ></sc-chart-distribution>
 
-        <div class="title mt-4">Histogramme et polygone de fréquence</div>
+        <sc-titre-partie>Histogramme et polygone de fréquence</sc-titre-partie>
         <sc-chart
                 chart-type="bar"
                 :chart-data="dataGraphiques.effectifs"
@@ -55,6 +55,9 @@
     import ScChartDistribution from "../../../../../components/ScChartDistribution";
     import ScChart from "../../../../../components/ScChart";
     import {Pi} from "../../../../../../public/js/pi"
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitreSousTitre from "../../../../../components/Titles/ScTitre3SousTitre";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
 
     function shuffleArray(d){
         for (let i = d.length - 1; i > 0; i--) {
@@ -67,7 +70,7 @@
 
     export default {
         name: "statistiqueVariableQuantitative",
-        components: {ScChartDistribution, ScChart},
+        components: {ScTitrePartie, ScTitreSousTitre, ScTitreSection, ScChartDistribution, ScChart},
         props: {
             editMode: {type: Boolean, default: false},
             colors: {type: Array, default: function(){

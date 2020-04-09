@@ -1,6 +1,10 @@
 <template>
     <v-container>
-        <div v-if="connection">
+
+        <v-btn x-large class="mt-10 mb-10" href="https://moodle.gyyv.vd.ch/" color="primary">Suivi des exercices et planning du cours sur Moodle</v-btn>
+
+
+        <!--<div v-if="connection">
             {{ user }} est connecté !
             <v-btn @click="deConnection">Déconnection</v-btn>
 
@@ -30,17 +34,16 @@
                     </v-card>
                 </v-col>
             </v-row>
-        </div>
+        </div>-->
     </v-container>
 </template>
 
 <script>
     import axios from "axios";
-    import ScFeuilleDeRoute from "../components/ScFeuilleDeRoute";
 
     export default {
         name: "plan",
-        components: {ScFeuilleDeRoute},
+        components: {},
         data: function() {
             return {
                 valid: false,

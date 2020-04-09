@@ -1,9 +1,9 @@
 <template>
     <section>
-        <div class="headline mt-10 mb-5">Variable qualitative</div>
+        <sc-titre-section id="variable-qualitative">Variable qualitative</sc-titre-section>
 
         <div class="mt-4">
-            <span class="title">Données brutes</span>
+            <sc-titre-sous-titre>Données brutes</sc-titre-sous-titre>
             <v-switch class="ml-5 d-inline-block" v-model="distributionRawDataAfficher" :label="`${distributionRawDataAfficher?'Cacher':'Afficher'} les données brutes`"></v-switch>
         </div>
         <v-slide-x-transition>
@@ -14,10 +14,10 @@
             </v-row>
         </v-slide-x-transition>
 
-        <div class="title mt-4">Tableau de distribution</div>
+        <sc-titre-partie>Tableau de distribution</sc-titre-partie>
         <sc-chart-distribution ref="chartQualitatif" :chart-data=distribution :edit-mode=editMode />
 
-        <div class="title mt-4">Graphiques</div>
+        <sc-titre-partie>Graphiques</sc-titre-partie>
         <v-row>
                 <v-col cols="6" class="text-center">
                     <div class="subtitle-1">Histogramme</div>
@@ -45,6 +45,9 @@
     import ScChartDistribution from "../../../../../components/ScChartDistribution";
     import ScChart from "../../../../../components/ScChart";
     import {Pi} from "../../../../../../public/js/pi"
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitreSousTitre from "../../../../../components/Titles/ScTitre3SousTitre";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
 
     function shuffleArray(d){
         for (let i = d.length - 1; i > 0; i--) {
@@ -57,7 +60,7 @@
 
      export default {
         name: "statistiqueVariableQualitative",
-        components: {ScChartDistribution, ScChart},
+        components: {ScTitrePartie, ScTitreSousTitre, ScTitreSection, ScChartDistribution, ScChart},
          props: {
             editMode: {type: Boolean, default: false},
              colors: {type: Array, default: function(){

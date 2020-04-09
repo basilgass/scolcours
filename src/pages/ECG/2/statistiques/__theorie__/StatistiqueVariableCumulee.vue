@@ -1,8 +1,8 @@
 <template>
     <section>
-        <div class="headline mt-10 mb-5">Fréquences cumulées</div>
+        <ScTitreSection id="frequences-cumulees">Fréquences cumulées</ScTitreSection>
 
-        <div class="title mt-4">Tableau de distribution par classes</div>
+        <sc-titre-partie>Tableau de distribution par classes</sc-titre-partie>
         <sc-chart-distribution
                         :chart-data=distributionContinue
                         :edit-mode=editMode
@@ -36,7 +36,7 @@
         </v-row>
 
 
-        <div class="title mt-4">Tableau de distribution cumulées</div>
+        <sc-titre-partie>Tableau de distribution cumulées</sc-titre-partie>
 
                 <sc-chart-distribution
                         :chart-data="distributionContinueGraphique"
@@ -78,10 +78,12 @@
     import ScChartDistribution from "../../../../../components/ScChartDistribution";
     import ScChart from "../../../../../components/ScChart";
     import {Pi} from "../../../../../../public/js/pi"
+    import ScTitreSection from "../../../../../components/Titles/ScTitre1Section";
+    import ScTitrePartie from "../../../../../components/Titles/ScTitre2Partie";
 
     export default {
         name: "statistiqueVariableCumulee",
-        components: {ScChart, ScChartDistribution},
+        components: {ScTitrePartie, ScTitreSection, ScChart, ScChartDistribution},
         props: {
             editMode: {type: Boolean, default: false},
             colors: {type: Array, default: function(){

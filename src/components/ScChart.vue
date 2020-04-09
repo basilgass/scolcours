@@ -28,11 +28,25 @@
             minValue: {type: Number, default: 0},
             tick: {type: Number, default: -1},
             pyramid: {type: Boolean, default: false},
+            stacked: {type: Boolean, default: false},
             xAxisPos: {type: String, default: 'bottom'},
             yAxisPos: {type: String, default: 'left'}
         },
         data: function(){
-            return {}
+            return {
+                defaultColors: function(){
+                    return [
+                        'rgba(255, 99, 132,0.75)',
+                        'rgba(255, 159, 64,0.75)',
+                        'rgba(255, 205, 86,0.75)',
+                        'rgba(75, 192, 192,0.75)',
+                        'rgba(54, 162, 235,0.75)',
+                        'rgba(8, 192, 61, 0.75)',
+                        'rgba(153, 102, 255,0.75)',
+                        'rgba(201, 203, 207,0.75)'
+                    ];
+                }
+            }
         },
         mounted() {
             this.chart = new Chart(this.$refs.chart, {
@@ -47,13 +61,26 @@
                     dlabel = this.chartLabels;
 
                 if(this.chartType==='bar' || this.chartType==='horizontalBar') {
-                    if(this.pyramid){
+                    if(this.pyramid) {
                         for (let i = 0; i < this.chartData.length; i++) {
                             ds.push({
                                 label: this.chartNames[i],
                                 data: this.chartData[i],
-                                backgroundColor: this.chartColors[i],
-                                borderColor: this.chartColors[i],
+                                backgroundColor: this.getChartColor(i),
+                                borderColor: this.getChartColor(i),
+                                borderWidth: this.borderWidth,
+                                categoryPercentage: this.barWidth,
+                                barPercentage: 1,
+                                order: 2
+                            });
+                        }
+                    }else if(this.stacked){
+                        for (let i = 0; i < this.chartData.length; i++) {
+                            ds.push({
+                                label: this.chartNames[i],
+                                data: this.chartData[i],
+                                backgroundColor: this.getChartColor(i),
+                                borderColor: this.getChartColor(i),
                                 borderWidth: this.borderWidth,
                                 categoryPercentage: this.barWidth,
                                 barPercentage: 1,
@@ -63,7 +90,7 @@
                     }else {
                         ds = [{
                             data: this.chartData,
-                            backgroundColor: this.chartColors,
+                            backgroundColor: this.getChartColor(),
                             borderWidth: this.borderWidth,
                             barPercentage: 1,
                             categoryPercentage: this.barWidth,
@@ -85,7 +112,7 @@
                 }else if(this.chartType==='pie'){
                     ds = [{
                         data: this.chartData,
-                        backgroundColor: this.chartColors,
+                        backgroundColor: this.getChartColor(),
                         borderWidth: this.borderWidth,
                         barPercentage: 1,
                         categoryPercentage: this.barWidth,
@@ -98,7 +125,7 @@
                                 label: this.chartNames[i],
                                 data: this.chartData[i],
                                 backgroundColor: 'transparent',
-                                borderColor: this.chartColors[i],
+                                borderColor: this.getChartColor(i),
                                 lineTension: 0
                             });
                         }
@@ -116,8 +143,8 @@
                         ds.push({
                             label: this.chartNames[i],
                             data: this.chartData[i],
-                            backgroundColor: this.chartColors[i],
-                            borderColor: this.chartBorderColors[i]!==undefined?this.chartBorderColors[i]:this.chartColors[i],
+                            backgroundColor: this.getChartColor(i),
+                            borderColor: this.chartBorderColors[i]!==undefined?this.chartBorderColors[i]:this.getChartColor(i),
                             borderWidth: this.borderWidth,
                             lineTension: 0
                         });
@@ -138,8 +165,12 @@
                             display: false
                         },
                         scales: {
+                            xAxes: [{
+                                stacked: this.stacked
+                            }],
                             yAxes: [
                                 {
+                                    stacked: this.stacked,
                                     ticks: {
                                         min: this.minChartValue(),
                                         max: this.maxChartValue()
@@ -217,9 +248,31 @@
                         legend: {
                             display: true
                         },
+                        scale:
+                            {
+                                angleLines: {
+                                    display: true
+                                },
+                                ticks: {
+                                    suggestedMin: this.minChartValue(),
+                                    suggestedMax: this.maxChartValue()
+                                }
+                            },
                     }
                 }
+
                 return options;
+            },
+            getChartColor: function(i){
+                if(i===undefined){
+                    return this.chartColors.length===0?this.defaultColors:this.chartColors;
+                }
+
+                if(this.chartColors[i]!==undefined){
+                    return this.chartColors[i%this.chartColors.length];
+                }else{
+                    return this.defaultColors()[i%this.defaultColors().length];
+                }
             },
             maxChartValue: function() {
                 if(this.maxValue!==-1) {

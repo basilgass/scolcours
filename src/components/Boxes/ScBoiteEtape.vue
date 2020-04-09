@@ -1,6 +1,7 @@
 <template>
     <div v-bind:class="{
             'mt-10': mt,
+            'mb-10': mb,
             'text-center': center
         }">
         <div v-bind:class="{'no-toc subtitle-1': true}">
@@ -13,9 +14,10 @@
 </template>
 <script>
     export default {
-        name: 'ScExempleEtape',
+        name: 'ScBoiteEtape',
         props: {
             mt: {type: Boolean, default: true},
+            mb: {type: Boolean, default: false},
             center: {type: Boolean, default: false}
         }
     }
