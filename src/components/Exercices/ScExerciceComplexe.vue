@@ -9,7 +9,7 @@
             <div v-for="(item, id) in etapes" :key="id" class="mt-4">
                 <sc-exercice-complexe-item
                         :id="id"
-                        :autofocus="id===0"
+                        :autofocus="id===0&&autofocus"
                         :donnee="item.donnee"
                         :question="item.question"
                         :reponse="item.reponse"
@@ -42,10 +42,27 @@
         name: 'ScExerciceComplexe',
         components: {ScExerciceComplexeItem},
         props: {
-            generateur: {type: Function, default: ()=>{return [];}},
-            minWidth: {type: [String,Boolean], default: ()=>{return false}},
-            maxWidth: {type: [String,Boolean], default: ()=>{return false}},
-            width: {type: [String,Boolean], default: ()=>{return false}}
+            autofocus: {type: Boolean, default: false},
+            generateur: {
+                type: Function, default: () => {
+                    return [];
+                }
+            },
+            minWidth: {
+                type: [String, Boolean], default: () => {
+                    return false
+                }
+            },
+            maxWidth: {
+                type: [String, Boolean], default: () => {
+                    return false
+                }
+            },
+            width: {
+                type: [String, Boolean], default: () => {
+                    return false
+                }
+            }
         },
         data: function(){
             return {

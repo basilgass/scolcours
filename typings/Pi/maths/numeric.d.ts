@@ -1,4 +1,6 @@
 export declare class Numeric {
+    static round(value: number, decimals?: number): number;
+
     /**
      * Get the list of the nth first prime numbers.
      * @param nb : number of primes to choose from

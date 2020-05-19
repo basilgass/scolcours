@@ -4,6 +4,7 @@
             color="light-green"
             dark
             clipped-right
+            hide-on-scroll
     >
         <div class="d-flex align-center">
             <v-img
@@ -37,7 +38,6 @@
         >
             Outils <v-icon class="ml-2">mdi-toolbox</v-icon>
         </v-btn>
-        <v-app-bar-nav-icon v-if="$vuetify.breakpoint.mdAndDown"></v-app-bar-nav-icon>
     </v-app-bar>
 </template>
 <script>
@@ -45,9 +45,9 @@
         name: 'ScNavbar',
         data: () => ({
             links: [
-                {id: 1, text: 'Accueil', link:'/'},
-                {id: 2, text: 'Maturité', link:'/M'},
-                {id: 3, text: 'ECG', link:'/ECG'},
+                {id: 1, text: 'Accueil', link: '/'},
+                /*{id: 2, text: 'Maturité', link:'/M'},
+                {id: 3, text: 'ECG', link:'/ECG'},*/
             ],
         }),
     }

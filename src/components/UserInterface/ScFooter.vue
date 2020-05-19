@@ -4,6 +4,7 @@
             padless
             clipped-right
             app
+            absolute
     >
         <v-row
                 justify="center"

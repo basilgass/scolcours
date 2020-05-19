@@ -1,13 +1,16 @@
-import { Equation } from "./equation";
-import { Fraction } from "./fraction";
+import {Equation} from "./equation";
+import {Fraction} from "./fraction";
+
 export declare class LinearSystem {
     private _equations;
     private _solutions;
     private _resolutionSteps;
+
     constructor();
+
     create: (...equations: Equation[]) => LinearSystem;
     parse: (...equStrs: string[]) => LinearSystem;
-    generate: (...solutions: number[] | Fraction[]) => LinearSystem;
+    generate: (...solutions: Fraction[] | number[]) => LinearSystem;
     private _generateOneEquation;
     private _checkIfLinerCombination;
     log: () => string;

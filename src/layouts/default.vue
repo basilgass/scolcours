@@ -2,13 +2,7 @@
   <div id="scolcours-default-layout">
     <sc-navbar></sc-navbar>
     <v-content>
-      <v-container id="scolcours-content">
-        <v-row justify="center">
-          <v-col cols="12" lg="10" xl="8">
-            <router-view/>
-          </v-col>
-        </v-row>
-      </v-container>
+        <router-view/>
     </v-content>
     <sc-footer></sc-footer>
   </div>
@@ -21,9 +15,12 @@
 </style>
 <script>
   import ScNavbar from "../components/UserInterface/ScNavbar";
-  import ScTocDrawer from "../components/UserInterface/ScTocDrawer";
   import ScFooter from "../components/UserInterface/ScFooter";
+  //import renderMathInElement from "katex/dist/contrib/auto-render.min";
   export default {
-    components: {ScFooter, ScNavbar}
+    components: {ScFooter, ScNavbar},
+    /*updated() {
+      renderMathInElement(this.$el);
+    }*/
   }
 </script>
